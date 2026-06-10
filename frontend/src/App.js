@@ -26,13 +26,15 @@ const translate=async()=>{
 
 if(text.trim()==="") return;
 
-const res=await axios.post(
-"http://127.0.0.1:8000/translate",
-{
-text,
-source,
-target
-}
+const API = process.env.REACT_APP_API_URL;
+
+const res = await axios.post(
+  `${API}/translate`,
+  {
+    text,
+    source,
+    target
+  }
 );
 
 setTranslated(res.data.translated_text);
