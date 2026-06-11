@@ -111,8 +111,10 @@ const swapLanguages = async () => {
 
         try{
 
+            const API = process.env.REACT_APP_API_URL;
+
             const res = await axios.post(
-                "http://127.0.0.1:8000/translate",
+                `${API}/translate`,
                 {
                     text: oldTranslated,
                     source: oldTarget,
